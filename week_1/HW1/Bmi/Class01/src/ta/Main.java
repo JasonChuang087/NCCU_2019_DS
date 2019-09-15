@@ -4,11 +4,11 @@ public class Main {
 	public static void main(String args[]) throws IOException {
 		BufferedReader buf = new BufferedReader(new InputStreamReader(System.in)); 
 		System.out.print("Please enter your height and weight: "); 
-        String text = buf.readLine(); 
-        String[] data = text.split(" ");
-        double res = getBMI(data);
-        String dia = getDiagnosis(res);
-        System.out.println(dia + " BMI: " + res); 
+		String text = buf.readLine(); 
+		String[] data = text.split(" ");
+		double res = getBMI(data);
+		String dia = getDiagnosis(res);
+		System.out.println(dia + " BMI: " + res); 
                
 	}
 	

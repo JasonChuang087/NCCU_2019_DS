@@ -34,7 +34,7 @@ public class Calculator {
 	}
 	public static double computePlus(String[] data) {
 		//route to here if operator is '+' and return the answer
-		return 0;
+		return Double.parseDouble(data[0]) + Double.parseDouble(data[2]);
 	}
 	public static double computeMinus(String[] data) {
 		//route to here if operator is '-' and return the answer

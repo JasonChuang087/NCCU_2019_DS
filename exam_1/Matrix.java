@@ -17,9 +17,18 @@ public class Matrix {
 		return scanner.nextLine().split(" ");
 	}
 	public static int[] computeAnswer(String[] data) {
-		//computer 2 * 2 matrix answer
 		
-		return new int[] {};
+		int[][] a = new int[][] {{Integer.parseInt(data[0]), Integer.parseInt(data[1])}, {Integer.parseInt(data[2]), Integer.parseInt(data[3])}};
+		int[][] b = new int[][] {{Integer.parseInt(data[5]), Integer.parseInt(data[6])}, {Integer.parseInt(data[7]), Integer.parseInt(data[8])}};
+		
+		int[] answer = new int[4];
+		answer[0] = a[0][0] * b[0][0] + a[0][1] * b[1][0];
+		answer[1] = 0;
+		answer[2] = 0;
+		answer[3] = 0;
+		
+		return answer;
+	}
 	}
 	public static int[][] bonusComputeAnswer(String[] data) {
 		// computer bonus matrix

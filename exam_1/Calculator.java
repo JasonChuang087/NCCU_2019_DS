@@ -21,7 +21,16 @@ public class Calculator {
 	}
 	public static double computeAnswer(String[] data) {
 		//route to operating method based on operator
-		return 0;
+		double answer;
+		if(data[1].equals("+"))
+			answer = computePlus(data);
+		else if(data[1].equals("-"))
+			answer = computeMinus(data);
+		else if(data[1].equals("*"))
+			answer = computeMult(data);
+		else answer = computeDiv(data);
+		
+		return answer;
 	}
 	public static double computePlus(String[] data) {
 		//route to here if operator is '+' and return the answer

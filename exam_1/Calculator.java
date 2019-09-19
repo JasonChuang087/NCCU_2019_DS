@@ -7,6 +7,7 @@ public class Calculator {
 		boolean checkIfInputIsValid = checkIfInputIsValid(data);
 		if(checkIfInputIsValid) {
 			double answer = computeAnswer(data);
+			System.out.println(answer);
 		}else {
 			System.out.println("Wrong pattern!!!");
 		}

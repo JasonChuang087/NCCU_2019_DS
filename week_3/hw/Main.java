@@ -13,10 +13,12 @@ public class Main {
 			    GeomProgression<Integer> intGeomProg = new GeomProgression<Integer>(sc.nextInt(), sc.nextInt());
 				intGeomProg.printProgression(sc.nextInt());
 				break;
-			    case 1:
+			    case 2:
 			    GeomProgression<Float> floatGeomProg = new GeomProgression<Float>(sc.nextFloat(), sc.nextFloat());
 				floatGeomProg.printProgression(sc.nextInt());
 				break;
+
+				// add long double
 	
 			    default:
 				System.out.println("InvalidType");

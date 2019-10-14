@@ -27,6 +27,8 @@ public class CalculatorAnswer {
 //		}
 //		return data.length == 3 && "-+*/".contains(data[1]);
 		
+		
+		
 		return data.length == 3 && data[0].matches("[0-9]+") && data[2].matches("[0-9]+") &&  data[1].matches("[-+*/]{1}");
 	}
 	public static double computeAnswer(String[] data) {

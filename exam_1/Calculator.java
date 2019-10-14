@@ -11,6 +11,7 @@ public class Calculator {
 		}else {
 			System.out.println("Wrong pattern!!!");
 		}
+		//This is cat branch
 	}
 	public static String[] getInputData(Scanner scanner) {
 		return scanner.nextLine().split(" ");

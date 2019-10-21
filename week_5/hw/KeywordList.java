@@ -10,7 +10,7 @@ public class KeywordList extends LinkedList{
     }
 	
 	public void outputIndex(int n){
-		if(n>=lst.size()){
+		if(n>lst.size()){
 		    System.out.println("InvalidOperation");
 		    return;
 		}

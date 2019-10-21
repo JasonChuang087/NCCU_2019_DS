@@ -37,6 +37,7 @@ public class LinkedList<T> {
 			}
 			current.next = new Node(t, null);
 		}
+		size++;
 		resetIndex();
 	}
 	public void add(int index, T t) {

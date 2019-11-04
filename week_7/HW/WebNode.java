@@ -21,7 +21,7 @@ public class WebNode {
 		//2. set webPage score to nodeScore
 		
 		
-		//3. webPage.score += all childrens nodeScore
+		//3. nodeScore += all childrens nodeScore
 				
 	}
 	

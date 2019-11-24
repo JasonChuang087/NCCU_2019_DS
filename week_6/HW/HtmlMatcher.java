@@ -60,7 +60,7 @@ public class HtmlMatcher {
 				//...
 			    	
 			}
-			if(tagName.equals("link") || tagName.equals("meta") || tagName.equals("!doctype")) {
+			if(tagName.equals("meta") || tagName.equals("!doctype")) {
 				indexOfOpen = indexOfClose;
 				continue;
 			}
@@ -69,6 +69,7 @@ public class HtmlMatcher {
 			int indexOfSlash = -1;
 			if((indexOfSlash = tagName.indexOf("/"))==-1){
 				//This is an open tag, so simply push it into stack
+
 				
 			}else{  	
 				//This is an close tag, so we should compare it to the topmost tag in the stack

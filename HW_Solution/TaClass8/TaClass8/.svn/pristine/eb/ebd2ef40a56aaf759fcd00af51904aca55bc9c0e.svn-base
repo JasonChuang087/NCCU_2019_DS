@@ -1,0 +1,134 @@
+package ta;
+
+import java.util.ArrayList;
+
+public class KeywordList {
+	private ArrayList<Keyword> lst;
+	
+	public KeywordList(){
+		this.lst = new ArrayList<Keyword>();
+    }
+	
+	public void add(Keyword keyword){
+		lst.add(keyword);
+		System.out.println("Done");
+    }
+	
+	//quick sort
+	public void sort(){
+		this.lst = doQuickSort(this.lst);
+	}
+	
+	private ArrayList<Keyword> doQuickSort(ArrayList<Keyword> list){
+		if(list.size()<2)return list;
+	
+		ArrayList<Keyword> result = new ArrayList<Keyword>();
+		
+		int pivotIndex = list.size()/2;
+		Keyword pivotKeyword = list.get(pivotIndex);
+		
+		ArrayList<Keyword> lessList = new ArrayList<Keyword>();
+		ArrayList<Keyword> equalList = new ArrayList<Keyword>();
+		ArrayList<Keyword> greatList = new ArrayList<Keyword>();
+		
+		for(int i=0;i<list.size();i++){
+			Keyword k = list.get(i);
+			if(k.count >pivotKeyword.count){
+				greatList.add(k);
+			}else if(k.count <pivotKeyword.count){
+				lessList.add(k);
+			}else{
+				equalList.add(k);
+			}
+		}
+		
+		result.addAll(doQuickSort(lessList));
+		result.addAll(equalList);
+		result.addAll(doQuickSort(greatList));
+		
+		return result;				
+	}
+	/*
+	private void quickSort(int leftbound, int rightbound){
+		if(leftbound>=rightbound)return;
+		
+		int pivotIndex = (leftbound+rightbound)/2;
+		
+		int lIndex=leftbound;
+		int	rIndex=rightbound;
+		while(lIndex != pivotIndex || rIndex != pivotIndex){
+			System.out.println("l: " + lIndex + ", r: " + rIndex);
+			//find i
+			lIndex = scanLeft(lIndex, pivotIndex);
+			//find j
+			rIndex = scanRight(rIndex, pivotIndex);
+			
+			System.out.println("l: " + lIndex + ", r: " + rIndex);
+			if(lIndex != -1){
+				if(rIndex != -1){
+					swap(lIndex, rIndex);
+					output();
+				}else{
+					Keyword temp = lst.get(lIndex);
+					lst.remove(lIndex);
+					lst.add(rightbound, temp);
+					pivotIndex--;
+					output();
+					
+				}
+			}else{
+				if(rIndex != -1){
+					Keyword temp = lst.get(rIndex);
+					lst.remove(rIndex);
+					lst.add(leftbound, temp);
+					pivotIndex++;
+					output();
+				}else{
+					break;
+				}
+			}						
+		}
+		output();
+		quickSort(leftbound, pivotIndex-1);
+		quickSort(pivotIndex+1, rightbound);
+	}
+	
+	private int scanLeft(int startIndex, int pivotIndex){
+		if(startIndex == -1) return -1;
+		int i;		
+		for(i=startIndex; i<=pivotIndex; i++){
+			if(lst.get(i).count > lst.get(pivotIndex).count) return i;
+		}
+
+		return -1;
+	}
+	
+	private int scanRight(int endIndex, int pivotIndex){
+		if(endIndex == -1) return -1;
+		int i;	
+		for(i=endIndex; i>=pivotIndex; i--){
+			if(lst.get(i).count < lst.get(pivotIndex).count) return i;
+		}
+
+		return -1;
+	}
+	
+	private void swap(int aIndex, int bIndex){
+		Keyword temp = lst.get(aIndex);
+		lst.set(aIndex, lst.get(bIndex));
+		lst.set(bIndex, temp);
+	}
+	*/
+	public void output(){
+		//TODO: write output and remove all element logic here...
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i=0; i<lst.size();i++){
+			Keyword k = lst.get(i);
+			if(i>0)sb.append(" ");
+			sb.append(k.toString());
+		}
+		
+		System.out.println(sb.toString());	
+	}
+}

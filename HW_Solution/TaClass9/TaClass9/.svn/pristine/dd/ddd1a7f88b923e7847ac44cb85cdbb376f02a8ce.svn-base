@@ -1,0 +1,62 @@
+package ta;
+
+import java.util.ArrayList;
+
+public class KeywordList {
+	private ArrayList<Keyword> lst;
+	
+	public KeywordList(){
+		this.lst = new ArrayList<Keyword>();
+    }
+	
+	public void add(Keyword keyword){
+		lst.add(keyword);
+		System.out.println("Done");
+    }
+	
+	public void find(String s){
+		int maxValue = -1;
+		int maxIndex = -1;
+		for(int i=0; i<lst.size(); i++){
+			int lcs = findLCS(lst.get(i).name, s);
+			System.out.println(lcs);
+			if(lcs > maxValue){
+				maxValue = lcs;
+				maxIndex = i;
+			}
+		}
+		System.out.println(lst.get(maxIndex).toString());
+	}
+	
+	public int findLCS(String x, String y){
+		int n = x.length();
+		int m = y.length();
+		int[][] lcs = new int[n+1][m+1];
+		
+		lcs[0][0] = 0;
+		for(int i=1; i<=n; i++){
+			lcs[i][0] = 0;
+		}
+		for(int j=1; j<=m; j++){
+			lcs[0][j] = 0;
+		}
+		
+		for(int i=1; i<=n; i++){
+			for(int j=1; j<=m; j++){
+				if(x.charAt(i-1) == y.charAt(j-1)) lcs[i][j] = lcs[i-1][j-1] + 1;
+				else lcs[i][j] = (lcs[i-1][j] > lcs[i][j-1])? lcs[i-1][j] : lcs[i][j-1];
+			}
+		}
+		return lcs[n][m];
+		
+	}
+	
+	private void printMatrix(int[][] matrix){
+		for(int i=0; i<matrix.length; i++){
+			for(int j=0; j<matrix[0].length; j++){
+				System.out.print(matrix[i][j] + " ");
+				if(j==matrix[0].length-1)System.out.print("\n");
+			}
+		}
+	}
+}
